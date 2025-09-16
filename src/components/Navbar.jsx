@@ -174,8 +174,8 @@ const Navbar = () => {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="lg:hidden py-4 border-t border-gray-200">
-            {/* Standalone Items */}
-            <div className="grid grid-cols-2 gap-2 mb-4">
+            {/* Top Row: Home, Feedback, Auth Token */}
+            <div className="grid grid-cols-3 gap-2 mb-4">
               {standaloneItems.map((item) => {
                 const Icon = item.icon;
                 return (
@@ -183,17 +183,35 @@ const Navbar = () => {
                     key={item.path}
                     to={item.path}
                     onClick={() => setIsOpen(false)}
-                    className={`flex items-center space-x-2 px-3 py-3 rounded-lg transition-all duration-200 ${
+                    className={`flex flex-col items-center justify-center px-2 py-3 rounded-lg transition-all duration-200 ${
                       isActive(item.path)
                         ? 'bg-blue-100 text-blue-700 shadow-sm'
                         : 'text-gray-600 hover:bg-gray-100 hover:text-gray-800'
                     }`}
                   >
-                    <Icon className="w-5 h-5" />
-                    <span className="text-sm font-medium">{item.name}</span>
+                    <Icon className="w-5 h-5 mb-1" />
+                    <span className="text-xs font-medium text-center">{item.name}</span>
                   </Link>
                 );
               })}
+              
+              {/* Mobile Auth Token Button */}
+              <button
+                onClick={() => {
+                  openAuthModal();
+                  setIsOpen(false);
+                }}
+                className={`flex flex-col items-center justify-center px-2 py-3 rounded-lg transition-all duration-200 ${
+                  isTokenSet
+                    ? 'bg-green-100 text-green-700 hover:bg-green-200'
+                    : 'bg-red-100 text-red-700 hover:bg-red-200'
+                }`}
+              >
+                <KeyIcon className="w-5 h-5 mb-1" />
+                <span className="text-xs font-medium text-center">
+                  {isTokenSet ? 'Token Set' : 'Set Token'}
+                </span>
+              </button>
             </div>
 
             {/* Translation Services Section */}
@@ -222,24 +240,6 @@ const Navbar = () => {
                 })}
               </div>
             </div>
-            
-            {/* Mobile Auth Token Button */}
-            <button
-              onClick={() => {
-                openAuthModal();
-                setIsOpen(false);
-              }}
-              className={`w-full flex items-center justify-center space-x-2 px-4 py-3 rounded-lg transition-all duration-200 ${
-                isTokenSet
-                  ? 'bg-green-100 text-green-700 hover:bg-green-200'
-                  : 'bg-red-100 text-red-700 hover:bg-red-200'
-              }`}
-            >
-              <KeyIcon className="w-5 h-5" />
-              <span className="text-sm font-medium">
-                {isTokenSet ? 'Manage Token' : 'Set Auth Token'}
-              </span>
-            </button>
           </div>
         )}
       </div>
