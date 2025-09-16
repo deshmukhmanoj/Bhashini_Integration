@@ -120,8 +120,6 @@ const PipelineQuestions = () => {
           <h3 className="text-lg font-semibold text-gray-800">Pipeline Configuration</h3>
         </div>
         
-        {/* Auth Token Manager */}
-        <AuthTokenManager />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div>
