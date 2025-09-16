@@ -145,17 +145,14 @@ const SpeechToSpeech = () => {
                   const audioUrl = URL.createObjectURL(audioBlob);
                   setOutputAudioUrl(audioUrl);
                 } catch (audioError) {
-                  console.error('Audio processing error:', audioError);
                   setError('Failed to process generated audio.');
                 }
               }
             }
           } else {
-            console.log('Full response:', response);
             setError('Speech-to-speech conversion failed. Please check your configuration and try again.');
           }
         } catch (err) {
-          console.error('Speech-to-speech error:', err);
           setError(err.message || 'Speech-to-speech conversion failed. Please try again.');
         } finally {
           setLoading(false);

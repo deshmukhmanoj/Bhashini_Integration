@@ -58,10 +58,7 @@ const Translation = () => {
     setError('');
 
     try {
-      console.log('Translating:', sourceText, 'from', sourceLang, 'to', targetLang);
-      
       const response = await bhashiniApi.translateText(sourceText, sourceLang, targetLang, authToken);
-      console.log('Translation response:', response);
       
       if (response && response.pipelineResponse && response.pipelineResponse[0]) {
         const translationResult = response.pipelineResponse[0].output[0].target;

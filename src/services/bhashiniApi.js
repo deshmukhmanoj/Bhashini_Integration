@@ -187,19 +187,14 @@ class BhashiniApiService {
         }
       };
 
-      console.log('ASR Payload:', JSON.stringify(payload, null, 2));
-
       const response = await this.apiClient.post(BHASHINI_INFERENCE_URL, payload, {
         headers: {
           'Authorization': authToken,
           'Content-Type': 'application/json'
         }
       });
-      
-      console.log('ASR Response:', response.data);
       return response.data;
     } catch (error) {
-      console.error('ASR Error:', error);
       throw this.handleError(error);
     }
   }
@@ -285,19 +280,14 @@ class BhashiniApiService {
         }
       };
 
-      console.log('Speech-to-Speech Payload:', JSON.stringify(payload, null, 2));
-
       const response = await this.apiClient.post(BHASHINI_INFERENCE_URL, payload, {
         headers: {
           'Authorization': authToken,
           'Content-Type': 'application/json'
         }
       });
-      
-      console.log('Speech-to-Speech Response:', response.data);
       return response.data;
     } catch (error) {
-      console.error('Speech-to-Speech Error:', error);
       throw this.handleError(error);
     }
   }

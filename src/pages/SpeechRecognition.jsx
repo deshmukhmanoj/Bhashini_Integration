@@ -115,11 +115,9 @@ const SpeechRecognition = () => {
             // Another possible structure
             setRecognizedText(response.data.output || response.data.text || 'Recognition completed');
           } else {
-            console.log('Full response:', response);
             setError('Speech recognition failed. Please check your configuration and try again.');
           }
         } catch (err) {
-          console.error('Speech recognition error:', err);
           setError(err.message || 'Speech recognition failed. Please try again.');
         } finally {
           setLoading(false);
