@@ -14,7 +14,6 @@ import { useAuth } from '../contexts/AuthContext';
 import bhashiniApi from '../services/bhashiniApi';
 import LoadingSpinner from '../components/LoadingSpinner';
 import ErrorMessage from '../components/ErrorMessage';
-import AuthTokenManager from '../components/AuthTokenManager';
 
 const SpeechToSpeech = () => {
   const [isRecording, setIsRecording] = useState(false);
@@ -217,8 +216,6 @@ const SpeechToSpeech = () => {
           <h3 className="text-lg font-semibold text-gray-800">API Configuration</h3>
         </div>
         
-        {/* Auth Token Manager */}
-        <AuthTokenManager />
 
         {/* Language Selector */}
         <div className="flex items-center justify-between">

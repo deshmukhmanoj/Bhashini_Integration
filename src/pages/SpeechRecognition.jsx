@@ -11,7 +11,6 @@ import { useAuth } from '../contexts/AuthContext';
 import bhashiniApi from '../services/bhashiniApi';
 import LoadingSpinner from '../components/LoadingSpinner';
 import ErrorMessage from '../components/ErrorMessage';
-import AuthTokenManager from '../components/AuthTokenManager';
 
 const SpeechRecognition = () => {
   const [isRecording, setIsRecording] = useState(false);
@@ -153,8 +152,6 @@ const SpeechRecognition = () => {
         <p className="text-lg text-gray-600">Convert spoken words into text with AI precision</p>
       </div>
 
-      {/* Auth Token Manager */}
-      <AuthTokenManager />
 
       {/* Configuration Panel */}
       <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mb-8">

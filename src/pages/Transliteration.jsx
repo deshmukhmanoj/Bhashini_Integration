@@ -10,7 +10,6 @@ import { useAuth } from '../contexts/AuthContext';
 import bhashiniApi from '../services/bhashiniApi';
 import LoadingSpinner from '../components/LoadingSpinner';
 import ErrorMessage from '../components/ErrorMessage';
-import AuthTokenManager from '../components/AuthTokenManager';
 
 const Transliteration = () => {
   const [sourceText, setSourceText] = useState('');
@@ -86,8 +85,6 @@ const Transliteration = () => {
         <p className="text-lg text-gray-600">Convert text from one script to another while preserving pronunciation</p>
       </div>
 
-      {/* Auth Token Manager */}
-      <AuthTokenManager />
 
       {/* Transliteration Interface */}
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">

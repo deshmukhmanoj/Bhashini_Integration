@@ -47,7 +47,7 @@ export const AuthProvider = ({ children }) => {
   const value = {
     authToken,
     isTokenSet,
-    updateAuthToken,
+    setAuthToken: updateAuthToken,
     clearAuthToken
   };
 

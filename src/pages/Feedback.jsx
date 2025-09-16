@@ -8,7 +8,6 @@ import {
 import { StarIcon as StarIconSolid } from '@heroicons/react/24/solid';
 import { useAuth } from '../contexts/AuthContext';
 import bhashiniApi from '../services/bhashiniApi';
-import AuthTokenManager from '../components/AuthTokenManager';
 
 const Feedback = () => {
   const [rating, setRating] = useState(0);
@@ -119,10 +118,6 @@ const Feedback = () => {
       {/* Feedback Form */}
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
         <form onSubmit={handleSubmitFeedback}>
-          {/* Auth Token Manager */}
-          <div className="px-6 py-4 border-b border-gray-100">
-            <AuthTokenManager />
-          </div>
 
           <div className="p-6 space-y-6">
             {/* Rating */}

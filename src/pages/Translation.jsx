@@ -10,7 +10,7 @@ import { useAuth } from '../contexts/AuthContext';
 import bhashiniApi from '../services/bhashiniApi';
 import LoadingSpinner from '../components/LoadingSpinner';
 import ErrorMessage from '../components/ErrorMessage';
-import AuthTokenManager from '../components/AuthTokenManager';
+import { toast } from 'react-toastify';
 
 const Translation = () => {
   const [sourceText, setSourceText] = useState('');
@@ -66,8 +66,10 @@ const Translation = () => {
       if (response && response.pipelineResponse && response.pipelineResponse[0]) {
         const translationResult = response.pipelineResponse[0].output[0].target;
         setTranslatedText(translationResult);
+        toast.success('Translation completed successfully!');
       } else {
         setError('Translation failed. Please check your configuration.');
+        toast.error('Translation failed. Please check your configuration.');
       }
     } catch (err) {
       setError(err.message || 'Translation failed. Please try again.');
@@ -78,6 +80,7 @@ const Translation = () => {
 
   const copyToClipboard = (text) => {
     navigator.clipboard.writeText(text);
+    toast.success('Text copied to clipboard!');
   };
 
   const speakText = (text, lang) => {
@@ -99,8 +102,6 @@ const Translation = () => {
         <p className="text-lg text-gray-600">Translate text between Indian languages with AI precision</p>
       </div>
 
-      {/* Auth Token Manager */}
-      <AuthTokenManager />
 
       {/* Translation Interface */}
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">

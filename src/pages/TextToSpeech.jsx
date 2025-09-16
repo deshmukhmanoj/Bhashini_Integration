@@ -12,7 +12,6 @@ import { useAuth } from '../contexts/AuthContext';
 import bhashiniApi from '../services/bhashiniApi';
 import LoadingSpinner from '../components/LoadingSpinner';
 import ErrorMessage from '../components/ErrorMessage';
-import AuthTokenManager from '../components/AuthTokenManager';
 
 const TextToSpeech = () => {
   const [inputText, setInputText] = useState('');
@@ -141,8 +140,6 @@ const TextToSpeech = () => {
         <p className="text-lg text-gray-600">Generate natural-sounding speech from text in Indian languages</p>
       </div>
 
-      {/* Auth Token Manager */}
-      <AuthTokenManager />
 
       {/* Configuration Panel */}
       <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mb-8">

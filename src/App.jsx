@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';
 import { AuthProvider } from './contexts/AuthContext';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Translation from './pages/Translation';
@@ -10,6 +11,7 @@ import TextToSpeech from './pages/TextToSpeech';
 import SpeechToSpeech from './pages/SpeechToSpeech';
 import PipelineQuestions from './pages/PipelineQuestions';
 import Feedback from './pages/Feedback';
+import './App.css';
 
 function App() {
   return (
@@ -30,9 +32,22 @@ function App() {
             </Routes>
           </main>
         </div>
+        {/* Toast Container */}
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
       </Router>
     </AuthProvider>
-  )
+  );
 }
 
-export default App
+export default App;
